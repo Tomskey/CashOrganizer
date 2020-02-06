@@ -1,5 +1,6 @@
 package com.CashOrganizer.operation;
 
+import com.CashOrganizer.wallet.Wallet;
 import lombok.*;
 
 import javax.persistence.*;
@@ -15,7 +16,7 @@ public class Operation {
 
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Id
-    private UUID id;
+    private UUID operationId;
 
     @Column
     private String operationName;
@@ -23,8 +24,11 @@ public class Operation {
     @Column
     private String category;
 
+    @ManyToOne
+    private Wallet wallet;
+
     @Column
-    private Double amountOfMoney;
+    private Double amountInOperation;
 
 
 }

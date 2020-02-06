@@ -20,10 +20,10 @@ public class NewOperationDTO {
 
     public static NewOperationDTO map(Operation operation){
        return NewOperationDTO.builder()
-               .operationId(operation.getId())
+               .operationId(operation.getOperationId())
                .operationName(operation.getOperationName())
                .category(operation.getCategory())
-               .amountOfMoney(operation.getAmountOfMoney())
+               .amountOfMoney(operation.getAmountInOperation())
                .build();
     }
 
