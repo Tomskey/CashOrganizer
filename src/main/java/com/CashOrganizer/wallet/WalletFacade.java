@@ -1,5 +1,10 @@
 package com.CashOrganizer.wallet;
 
+import com.CashOrganizer.wallet.dto.NewWalletDTO;
+
+import javax.transaction.Transactional;
+
+@Transactional
 public class WalletFacade {
 
     WalletManager walletManager;
@@ -8,7 +13,7 @@ public class WalletFacade {
         this.walletManager = walletManager;
     }
 
-    public boolean updateAmountInWallet(Double amountInWallet){
-        return walletManager.updateAmountInWallet(amountInWallet);
+     Wallet addNewWallet(NewWalletDTO newWalletDTO){
+        return walletManager.addNewWallet(newWalletDTO);
     }
 }

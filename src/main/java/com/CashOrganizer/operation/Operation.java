@@ -14,7 +14,7 @@ import java.util.UUID;
 @NoArgsConstructor
 public class Operation {
 
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(generator = "uuid")
     @Id
     private UUID operationId;
 

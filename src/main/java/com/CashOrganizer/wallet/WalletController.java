@@ -1,10 +1,9 @@
 package com.CashOrganizer.wallet;
 
+import com.CashOrganizer.wallet.dto.NewWalletDTO;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/wallet")
@@ -15,6 +14,8 @@ public class WalletController {
         this.walletFacade = walletFacade;
     }
 
-    @PutMapping
-    public ResponseEntity<?> updateAmountInWallet(@PathVariable)
+    @PostMapping("/addWallet")
+    public ResponseEntity<?> addNewWallet(@RequestBody NewWalletDTO newWalletDTO){
+        return new ResponseEntity<>(walletFacade.addNewWallet(newWalletDTO), HttpStatus.OK);
+    }
 }
